@@ -1,7 +1,29 @@
-Total Trips = COUNTROWS(fct_route_daily)
-Total Passengers = SUM(fct_route_daily[passengers])
-On-Time Performance % = AVERAGE(fct_route_daily[on_time_pct])
-Average Delay Minutes = AVERAGE(fct_route_daily[average_delay_minutes])
-Cancellation Rate % = DIVIDE(SUM(fct_route_daily[cancelled_trips]), SUM(fct_route_daily[scheduled_trips])) * 100
-Average Occupancy % = AVERAGE(fct_route_daily[average_occupancy_pct])
+Total Trips = SUM(route_daily_performance[scheduled_trips])
 
+Total Passengers = SUM(route_daily_performance[passengers])
+
+On-Time Performance % =
+DIVIDE(
+    SUMX(
+        route_daily_performance,
+        route_daily_performance[scheduled_trips] * route_daily_performance[on_time_pct] / 100
+    ),
+    SUM(route_daily_performance[scheduled_trips])
+)
+
+Average Delay Minutes =
+DIVIDE(
+    SUMX(
+        route_daily_performance,
+        route_daily_performance[scheduled_trips] * route_daily_performance[average_delay_minutes]
+    ),
+    SUM(route_daily_performance[scheduled_trips])
+)
+
+Cancellation Rate % =
+DIVIDE(
+    SUM(route_daily_performance[cancelled_trips]),
+    SUM(route_daily_performance[scheduled_trips])
+)
+
+Average Occupancy % = AVERAGE(route_daily_performance[average_occupancy_pct]) / 100

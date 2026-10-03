@@ -46,3 +46,8 @@ directories; a pointer file by itself is not a valid report.
 The measures in `measures.dax` are ready to paste into Power BI. The report is
 deliberately output-focused; an input form would not add value to this analytics
 use case.
+
+Format `On-Time Performance %`, `Cancellation Rate %`, and `Average Occupancy %`
+as **Percentage** with one decimal place. Format `Average Delay Minutes` as a
+decimal number with one decimal place. The CSV percentage columns contain values
+from 0 to 100; the DAX measures convert them to Power BI's 0-to-1 percentage scale.
