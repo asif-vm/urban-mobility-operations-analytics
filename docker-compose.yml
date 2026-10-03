@@ -1,0 +1,8 @@
+services:
+  pipeline:
+    build: .
+    volumes:
+      - ./data:/app/data
+    environment:
+      SPARK_MASTER: local[*]
+
