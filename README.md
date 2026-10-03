@@ -37,8 +37,12 @@ python -m venv .venv
 pip install pandas numpy duckdb pytest
 python -m src.generate_data --rows 25000
 python -m src.local_pipeline
+python powerbi/export_dataset.py
 pytest -q
 ```
+
+Import `powerbi/route_daily_performance.csv` into Power BI Desktop and follow
+the report layout in `powerbi/README.md`.
 
 For the full stack, install Java 17 and `requirements.txt`, run `python -m
 src.spark_pipeline`, then run `dbt build --project-dir dbt --profiles-dir dbt`.
