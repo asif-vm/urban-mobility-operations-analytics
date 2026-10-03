@@ -1,7 +1,9 @@
 # Power BI dashboard
 
-This folder contains a version-controlled Power BI project entry point, the
-business measures, and an import-ready analytics dataset.
+This folder is a tested Power BI starter package containing an import-ready
+analytics dataset, documented business measures, and a three-page report
+blueprint. It does not claim to include a finished `.pbix` or `.pbip` report;
+those binary/project artifacts must be created and saved by Power BI Desktop.
 
 ## Refresh the report data
 
@@ -14,6 +16,12 @@ python powerbi/export_dataset.py
 The final command creates `powerbi/route_daily_performance.csv`. In Power BI
 Desktop, choose **Get data > Text/CSV**, select that file, and name the table
 `route_daily_performance`.
+
+After building the pages below, choose **File > Save As** in Power BI Desktop.
+Save as `.pbix` for the simplest portable report, or enable Power BI Project
+format and save as `.pbip` if you want source-controlled report and semantic
+model folders. A real PBIP contains both `.Report` and `.SemanticModel`
+directories; a pointer file by itself is not a valid report.
 
 ## Report layout
 
