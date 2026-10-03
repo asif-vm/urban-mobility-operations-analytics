@@ -7,6 +7,6 @@ data/raw/
 data/processed/
 target/
 dbt_packages/
+dbt/.user.yml
 *.duckdb
 *.log
-
